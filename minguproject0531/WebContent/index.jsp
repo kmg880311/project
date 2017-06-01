@@ -9,7 +9,7 @@
 
 </head>
 <body>
-
+<% %>
 
 <%@ include file="/module/top.jsp" %>
 <%@ include file="/module/left.jsp" %>
