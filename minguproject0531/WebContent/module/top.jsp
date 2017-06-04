@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%
+	String S_NICK = (String)session.getAttribute("S_NICK");
+	String SID = (String)session.getAttribute("SID");
+	System.out.println(S_NICK + "<-- 세션 닉");
+	System.out.println(SID + "<-- 세션 아이디");
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,38 +42,72 @@
   	
   	<%--홈 버튼 --%>
   	
-    	
+    <%--검색 하기 --%>	
 	<input id="inputsm" type="text" name ="inputsm">
 	<input type="button" value="검색" id="searchbtn" >
-   
+   	<%--검색 하기 --%>
      
-     
-      <%-- 로그인 하기 버튼 --%>
+<%
+	if(S_NICK == null){	
+%>         
+	 <%-- 로그인 하기 버튼 --%>
       <button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/login/login_form.jsp'" ><h5>로그인하기</h5></button>
       <%-- 로그인 하기 버튼 --%>
-       <%-- 검색하기 --%>
-    
-   
-		
-
-     <%-- 검색하기 --%> 
-       
+     
       <%-- 회원가입 하기 버튼 --%>
       <button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/minsert/minsert_form.jsp'" ><h5>회원가입하기</h5></button>
       <%-- 회원가입 하기 버튼 --%>
       
-       <%-- 아이디찾기 --%>
+      <%-- 아이디찾기 --%>
       <button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/findid/find_id_form.jsp'" ><h5>아이디 찾기</h5></button>
       <%-- 아이디찾기 --%>
       
-       <%-- 비밀번호 찾기 --%>
+      <%-- 비밀번호 찾기 --%>
       <button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/findpw/find_pw_form.jsp'" ><h5>비밀번호 찾기</h5></button>
       <%-- 비밀번호 찾기 --%>
-      
-      <%-- 영상 업로드 하기 --%>
-      <button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/yupload/yupload_form.jsp'" ><h5>영상 업로드 하기</h5></button>
-      <%-- 영상 업로드 하기  --%>
-       
+
+<%
+	}else if(SID.equals("id001")){
+%>
+	<%-- 로그인 아웃 --%>
+	운영자 님<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/login/loginout.jsp'" ><h5>로그아웃하기</h5></button>
+	<%-- 로그인 아웃 --%>
+	
+	<%-- 영상 업로드 --%>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/yupload/yupload_form.jsp'" ><h5>영상 업로드 하기</h5></button>
+	<%-- 영상 업로드 --%>
+	
+	<%-- 회원 정보 수정--%>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/ltupdate/lt_update_form.jsp?updateid=<%= SID %>'" ><h5>회원정보수정</h5></button>
+	<%-- 회원 정보 수정 --%>												
+	
+	<%-- 회원 정보 수정--%>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/ltdelete/lt_delete_pro.jsp?deleteid=<%= SID %>'" ><h5>회원탈퇴하기</h5></button>
+	<%-- 회원 정보 수정 --%>
+<%
+	}else if(S_NICK != null){
+%>
+
+	<%-- 로그인 아웃 --%>
+	<%= S_NICK %>님<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/login/loginout.jsp'" ><h5>로그아웃하기</h5></button>
+	<%-- 로그인 아웃 --%>
+	
+	<%-- 영상 업로드 --%>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/yupload/yupload_form.jsp'" ><h5>영상 업로드 하기</h5></button>
+	<%-- 영상 업로드 --%>
+	
+	<%-- 회원 정보 수정--%>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/ltupdate/lt_update_form.jsp?updateid=<%= SID %>'" ><h5>회원정보수정</h5></button>
+	<%-- 회원 정보 수정 --%>	
+	
+	<%-- 회원 정보 수정--%>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/ltdelete/lt_delete_pro.jsp?deleteid=<%= SID %>'" ><h5>회원탈퇴하기</h5></button>
+	<%-- 회원 정보 수정 --%>
+<%
+		}
+%>
+
+           
     </div>
   </div>
 </nav>
