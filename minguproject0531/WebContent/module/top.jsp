@@ -74,7 +74,7 @@
 	<%-- 로그인 아웃 --%>
 	
 	<%-- 영상 업로드 --%>
-	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/yupload/yupload_form.jsp'" ><h5>영상 업로드 하기</h5></button>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/videoinsert/video_insert_form.jsp'" ><h5>영상 업로드 하기</h5></button>
 	<%-- 영상 업로드 --%>
 	
 	<%-- 회원 정보 수정--%>
@@ -93,7 +93,7 @@
 	<%-- 로그인 아웃 --%>
 	
 	<%-- 영상 업로드 --%>
-	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/yupload/yupload_form.jsp'" ><h5>영상 업로드 하기</h5></button>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%=request.getContextPath() %>/videoinsert/video_insert_form.jsp'" ><h5>영상 업로드 하기</h5></button>
 	<%-- 영상 업로드 --%>
 	
 	<%-- 회원 정보 수정--%>

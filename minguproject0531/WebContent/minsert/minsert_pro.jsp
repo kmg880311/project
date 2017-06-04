@@ -19,7 +19,7 @@
 </head>
 <body>
 <%
-	request.setCharacterEncoding("euc-kr");
+	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 		System.out.println(id + "회원가입시 아이디");
 		
