@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import project.driverdb.DriverDB;
 import project.dto.Lt_list;
@@ -14,6 +15,52 @@ public class videoDao {
 	
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+/////////////	영상 전체 리스트 	/////////////////////////////////////////////////////////////////////////////////////////////	
+	public ArrayList<video> Allvideo() throws ClassNotFoundException{
+		ArrayList<video> video = new ArrayList<video>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+	
+		try{
+			DriverDB db = new DriverDB();
+			conn = db.driverDbcon();
+			String query = null;	
+			query = "select	* from lt_video";
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				video vi = new video();
+				vi.setLive(rs.getString("live"));
+				vi.setY_id(rs.getString("y_id"));
+				vi.setY_title(rs.getString("y_title"));
+				vi.setY_name(rs.getString("y_name"));
+				vi.setY_comment(rs.getString("y_comment"));
+				vi.setY_code(rs.getString("y_code"));
+				vi.setY_style(rs.getString("y_style"));
+				vi.setY_ct(rs.getString("y_ct"));
+				vi.setY_cu(rs.getString("y_cu"));
+				vi.setY_data(rs.getString("y_data"));
+				vi.setY_cl(rs.getString("y_cl"));
+				vi.setY_good(rs.getString("y_good"));
+				vi.setY_sin(rs.getString("y_sin"));
+				video.add(vi);
+				
+				
+			}		
+	
+		} catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+			if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+			if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+		}	
+		return video;
+	}	
 	
 	
 /////////////	영상 등록 하기	/////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,7 +98,7 @@ public class videoDao {
 			pstmt2.setString(7, vi.getY_style());
 			pstmt2.setString(8, vi.getY_ct());
 			pstmt2.setString(9, vi.getY_cu());
-			
+				System.out.println(vi.getY_style() + "dsaldkjfaskljfdjlksa");
 			
 			int as = pstmt2.executeUpdate();
 				System.out.println(as + "<---쿼리완료확인");

@@ -6,7 +6,7 @@
 <%@ page import = "project.dao.LivetubeDao" %>
 
 
-<% request.setCharacterEncoding("euc-kr");%>
+<% request.setCharacterEncoding("UTF-8");%>
 <jsp:useBean id="lt" class="project.dto.Lt_list"/>
 <jsp:setProperty name="lt" property="*"/>
 

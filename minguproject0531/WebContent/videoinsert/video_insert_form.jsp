@@ -76,7 +76,7 @@ System.out.println(SID3 + "<-- 로그인되어있는 아이디");
 	</td>
 <tr>
 	<td><select name="y_cu">
-		<option value="장르">	한국		</option>
+		<option value="장르">장르</option>
 		<option value="락">	락		</option>
 		<option value="발라드">발라드 	</option>
 		<option value="댄스">	댄스		</option>

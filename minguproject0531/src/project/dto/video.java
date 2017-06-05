@@ -14,6 +14,7 @@ public class video {
 	private String y_good;
 	private String y_sin;
 	private String y_data;
+		
 	public String getLive() {
 		return live;
 	}
@@ -54,6 +55,7 @@ public class video {
 		return y_style;
 	}
 	public void setY_style(String y_style) {
+			System.out.println(y_style + "비디오 ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ");
 		this.y_style = y_style;
 	}
 	public String getY_ct() {

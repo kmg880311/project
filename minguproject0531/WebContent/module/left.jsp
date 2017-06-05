@@ -34,24 +34,24 @@
 <%
 		
 %>      
-  	 <button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>인기영상</h4></button><br>
-  	 <button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>최근동영상</h4></button><br>
-  	 <button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>추천많은영상</h4></button><br>
-  	 <button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>조회수많은영상</h4></button><br>
-  	 <button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>댓글많은영상</h4></button><br>
+  	 <button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>인기영상</h4></button><br>
+  	 <button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>최근동영상</h4></button><br>
+  	 <button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>추천많은영상</h4></button><br>
+  	 <button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>조회수많은영상</h4></button><br>
+  	 <button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>댓글많은영상</h4></button><br>
 <%
 	if(S_NICK2 == null){	
 	}else if(SID2.equals("id001")){
 %>
-	<button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>내가올린영상</h4></button><br>
-  	<button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>광고확인하기</h4></button><br>
-  	<button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>신고받은영상</h4></button><br>
- 	<button type="button" class="btn btn-default"  onclick="location.href='ltlist/lt_list.jsp'"><h4>회원리스트</h4></button><br>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>내가올린영상</h4></button><br>
+  	<button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>광고확인하기</h4></button><br>
+  	<button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>신고받은영상</h4></button><br>
+ 	<button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/ltlist/lt_list.jsp'"><h4>회원리스트</h4></button><br>
 <%
 	}else if(S_NICK2 != null){
 %> 
-	<button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>내가올린영상</h4></button><br>
-  	<button type="button" class="btn btn-default"  onclick="location.href='backup.jsp'"><h4>광고신청하기</h4></button><br>
+	<button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>내가올린영상</h4></button><br>
+  	<button type="button" class="btn btn-default"  onclick="location.href='<%= request.getContextPath() %>/backup.jsp'"><h4>광고신청하기</h4></button><br>
 <%
 	}
 %> 			
