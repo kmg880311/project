@@ -15,6 +15,80 @@ public class videoDao {
 	
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+/////////////	해당 영상 보기 	/////////////////////////////////////////////////////////////////////////////////////////////	
+	public video watchvideo(String live) throws ClassNotFoundException{
+		video vi = new video();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			DriverDB db = new DriverDB();
+			conn = db.driverDbcon();
+			String query = null;	
+			query = "select	* from lt_video where live=?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, live);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+			vi.setY_code(rs.getString("y_code"));
+			vi.setLive(live);
+				
+			}
+		
+		} catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+			if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+			if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+		}	
+		return vi;
+	}	
+
+	
+/////////////	썸네일 리스트 	/////////////////////////////////////////////////////////////////////////////////////////////	
+	public ArrayList<video> thumbnailvideo() throws ClassNotFoundException{
+		ArrayList<video> video = new ArrayList<video>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			DriverDB db = new DriverDB();
+			conn = db.driverDbcon();
+			String query = null;	
+			query = "SELECT substr(y_code, 33) FROM lt_video";
+			
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				video vi = new video();
+				
+				vi.setY_thumbnail(rs.getString("y_code"));
+					System.out.println(rs.getString("y_code")+"23452345324523452354");
+				video.add(vi);
+				
+				
+			}		
+		
+		} catch(SQLException ex) {
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
+		} finally {
+			if (rs != null) try { rs.close(); } catch(SQLException ex) {}
+			if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+			if (conn != null) try { conn.close(); } catch(SQLException ex) {}
+		}	
+		return video;
+	}		
+	
+	
 /////////////	영상 전체 리스트 	/////////////////////////////////////////////////////////////////////////////////////////////	
 	public ArrayList<video> Allvideo() throws ClassNotFoundException{
 		ArrayList<video> video = new ArrayList<video>();
@@ -22,7 +96,7 @@ public class videoDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-	
+		
 		try{
 			DriverDB db = new DriverDB();
 			conn = db.driverDbcon();

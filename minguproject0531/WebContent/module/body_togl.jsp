@@ -90,8 +90,8 @@
 		<%---영상 썸네일 --%><img class="play_link" cid="592a5d001d295a6a588b4569" play="https://www.youtube.com/embed/MPX-ojIEbDI?autoplay=1&amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" src="http://img.youtube.com/vi/MPX-ojIEbDI/0.jpg" width="120" height="90">
 	
 		<img class="play_btn" src="http://z.fow.kr/img/play.png" style="position: absolute; left: 30px; top: 9px; border: 0px; cursor: pointer; display: none;"></div>
-		<%---영상클릭주소 --%><div style="position:absolute; left:210px; top:4px; width:515px; overflow:hidden;" class="ell"><a style="text-decoration:none;" href='<%=request.getContextPath() %>/videowatch/video_watch_form.jsp?live=<%= a.getLive() %>'>
-																																												
+		<%---영상클릭주소 --%><div style="position:absolute; left:210px; top:4px; width:515px; overflow:hidden;" class="ell"><a style="text-decoration:none;" target="_blank" href=<%= a.getY_code() %>>
+		
 		
 						
 		<%-- 영상 타이틀--%><span style="color:#2955BC; font-size:14pt; font-family:dotum; text-decoration:none;"><b><%= a.getY_title() %></b></span><br>
