@@ -27,7 +27,7 @@ public class videoDao {
 			DriverDB db = new DriverDB();
 			conn = db.driverDbcon();
 			String query = null;	
-			query = "select	* from lt_video where live=?";
+			query = "SELECT live, y_id, y_title, y_name, y_comment, y_style, y_ct, y_cu, y_data, y_cl, y_good, y_sin, substr(y_code, 33) y_code FROM lt_video where live=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, live);
 			rs = pstmt.executeQuery();
@@ -62,7 +62,7 @@ public class videoDao {
 			DriverDB db = new DriverDB();
 			conn = db.driverDbcon();
 			String query = null;	
-			query = "SELECT substr(y_code, 33) FROM lt_video";
+			query = "SELECT substr(y_code, 33) y_code FROM lt_video";
 			
 			pstmt = conn.prepareStatement(query);
 			rs = pstmt.executeQuery();
@@ -101,7 +101,7 @@ public class videoDao {
 			DriverDB db = new DriverDB();
 			conn = db.driverDbcon();
 			String query = null;	
-			query = "select	* from lt_video";
+			query = "SELECT live, y_id, y_title, y_name, y_comment, y_style, y_ct, y_cu, y_data, y_cl, y_good, y_sin, substr(y_code, 33) y_code FROM lt_video ORDER BY y_data DESC";
 			pstmt = conn.prepareStatement(query);
 			rs = pstmt.executeQuery();
 			

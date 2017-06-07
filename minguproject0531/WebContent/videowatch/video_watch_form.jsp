@@ -41,13 +41,12 @@ System.out.println(SID3 + "<-- 로그인되어있는 아이디");
 		CommentDao dao2 = new CommentDao();
 		ArrayList<Comment> ct = dao2.commentlist(live);
 			System.out.println(ct + "-----어레이리스트 댓글");
-
+		
 %>
 	<%---영상화면 --%>
 		<br><br>
-		<iframe height="409" width="726" frameborder="0" src="https://www.youtube.com/embed/78Ygna03Pj8?amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-		
-		
+		<iframe name="video" height="409" width="726" frameborder="0" src="https://www.youtube.com/embed/<%= vi.getY_code() %>?amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
 	<%---댓글입력 --%>
 		<br>
 		 <span style="color: red; font-size: 20pt">댓글달기</span>
@@ -60,7 +59,7 @@ System.out.println(SID3 + "<-- 로그인되어있는 아이디");
 				<tr>
 				<tr>
 					<td>영상넘버</td>
-					<td><input type="text" name="c_live" size="50" value="<%= vi.getLive() %>"></td>
+					<td><input type="hidden" name="c_live" size="50" value="<%= vi.getLive() %>"></td>
 				<tr>
 				<tr>
 					<td>댓글내용</td>
@@ -72,7 +71,7 @@ System.out.println(SID3 + "<-- 로그인되어있는 아이디");
 				</tr>
 			</table>
 		</form>
-		
+	
 	<%---댓글리스트 --%>	
 <% 		
 		for(Comment a : ct){

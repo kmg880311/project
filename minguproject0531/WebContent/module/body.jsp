@@ -19,6 +19,15 @@
   
   <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/main.css" />
   
+  <script>
+	  $(document).ready(function(){
+		 $('#video').click(function(){
+			$('inputsm').attr('visable',true) 
+		 }); 
+	  });
+  </script>
+  
+  
 </head>
 <body>
 <div class="col-sm-8 text-left"> 
@@ -87,7 +96,7 @@
 		<%-- 좋아요갯수--%><span id="good_592a5d001d295a6a588b4569" title="0" score="73"><%= a.getY_good() %></span>
 		
 		<br><img cid="592a5d001d295a6a588b4569" class="bad_btn"></div><div class="ll_thumb" style="position:absolute; left:80px; top:4px; width:120px; height:80px; overflow:hidden; text-align:center; border:1px solid silver;">
-		<%---영상 썸네일 --%><img class="play_link" cid="592a5d001d295a6a588b4569" play="https://www.youtube.com/embed/MPX-ojIEbDI?autoplay=1&amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" src="http://img.youtube.com/vi/MPX-ojIEbDI/0.jpg" width="120" height="90">
+		<%---영상 썸네일 --%><a href="<%=request.getContextPath() %>/videowatch/video_watch_form.jsp?live=<%= a.getLive() %>"><img class="play_link" cid="592a5d001d295a6a588b4569" play="https://www.youtube.com/embed/MPX-ojIEbDI?autoplay=1&amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" src="http://img.youtube.com/vi/<%= a.getY_code() %>/0.jpg" width="120" height="90"></a>
 	
 		<img class="play_btn" src="http://z.fow.kr/img/play.png" style="position: absolute; left: 30px; top: 9px; border: 0px; cursor: pointer; display: none;"></div>
 		<%---영상클릭주소 --%><div style="position:absolute; left:210px; top:4px; width:515px; overflow:hidden;" class="ell"><a style="text-decoration:none;" href='<%=request.getContextPath() %>/videowatch/video_watch_form.jsp?live=<%= a.getLive() %>'>
@@ -143,7 +152,7 @@
 	 <%---영상화면 --%>
 					<div id="memo_5934d76c1d295a79318b4568" cid="5934d76c1d295a79318b4568" style="vertical-align: middle; border-top: 1px dotted rgb(183, 209, 242); padding: 8px 8px 8px 75px; display: block;" isshow="1">
 					<div style="margin-left:-85px;">
-					<iframe height="409" width="726" frameborder="0" src="https://www.youtube.com/watch?v=iFl6Txmuibs&list=RDMMGdieREJYYfA&index=3" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+					<iframe name="video" height="409" width="726" frameborder="0" src="https://www.youtube.com/watch?v=iFl6Txmuibs&list=RDMMGdieREJYYfA&index=3" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
 					</iframe></div></div>
 	<%---댓글 --%>
 			<div id="comment_5934d76c1d295a79318b4568" cid="5934d76c1d295a79318b4568" isshow="1" style="vertical-align: middle; border-top: 1px dotted rgb(183, 209, 242); display: block;">

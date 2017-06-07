@@ -98,6 +98,7 @@ public class video {
 		return y_thumbnail;
 	}
 	public void setY_thumbnail(String y_thumbnail) {
+			System.out.println(y_thumbnail + "섬네ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ일");
 		this.y_thumbnail = y_thumbnail;
 	}
 		
