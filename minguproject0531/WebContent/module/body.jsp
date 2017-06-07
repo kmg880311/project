@@ -19,13 +19,24 @@
   
   <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/main.css" />
   
-  <script>
-	  $(document).ready(function(){
-		 $('#video').click(function(){
-			$('inputsm').attr('visable',true) 
-		 }); 
-	  });
-  </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		
+		$(document).ready(function(){
+			$('#videotoggle').css('display','none');
+			$('button').click(function(){
+				$('#videotoggle').toggle();
+				
+			});
+			
+			$('#aaa').css('display','none');
+			$('button').click(function(){
+				$('#aaa').toggle();
+			});
+			
+			
+		});
+	</script>
   
   
 </head>
@@ -96,8 +107,12 @@
 		<%-- 좋아요갯수--%><span id="good_592a5d001d295a6a588b4569" title="0" score="73"><%= a.getY_good() %></span>
 		
 		<br><img cid="592a5d001d295a6a588b4569" class="bad_btn"></div><div class="ll_thumb" style="position:absolute; left:80px; top:4px; width:120px; height:80px; overflow:hidden; text-align:center; border:1px solid silver;">
-		<%---영상 썸네일 --%><a href="<%=request.getContextPath() %>/videowatch/video_watch_form.jsp?live=<%= a.getLive() %>"><img class="play_link" cid="592a5d001d295a6a588b4569" play="https://www.youtube.com/embed/MPX-ojIEbDI?autoplay=1&amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" src="http://img.youtube.com/vi/<%= a.getY_code() %>/0.jpg" width="120" height="90"></a>
-	
+		<%---영상 썸네일 --%><button><img class="play_link" cid="592a5d001d295a6a588b4569" play="https://www.youtube.com/embed/MPX-ojIEbDI?autoplay=1&amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" src="http://img.youtube.com/vi/<%= a.getY_code() %>/0.jpg" width="120" height="90"></button>
+				
+				<%-- <a href="<%=request.getContextPath() %>/videowatch/video_watch_form.jsp?live=<%= a.getLive() %>">--%>
+				
+								
+					
 		<img class="play_btn" src="http://z.fow.kr/img/play.png" style="position: absolute; left: 30px; top: 9px; border: 0px; cursor: pointer; display: none;"></div>
 		<%---영상클릭주소 --%><div style="position:absolute; left:210px; top:4px; width:515px; overflow:hidden;" class="ell"><a style="text-decoration:none;" href='<%=request.getContextPath() %>/videowatch/video_watch_form.jsp?live=<%= a.getLive() %>'>
 																																												
@@ -143,24 +158,27 @@
 				  <div class="ll_thumb" style="position:absolute; left:80px; top:4px; width:120px; height:80px; overflow:hidden; text-align:center; border:1px solid silver;">
 				  <img class="play_link" cid="592a160a1d295a26628b456a" play="https://www.youtube.com/embed/7e_cKrkE1-Q?autoplay=1&amp;version=3&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;fs=1" src="http://img.youtube.com/vi/7e_cKrkE1-Q/0.jpg" width="120" height="90">
 				 --%>
+				
+				
 				 
-				 
-		
 <%
 	}
-%>     	
-	 <%---영상화면 --%>
+%>   	
+			<%---영상화면 --%>
 					<div id="memo_5934d76c1d295a79318b4568" cid="5934d76c1d295a79318b4568" style="vertical-align: middle; border-top: 1px dotted rgb(183, 209, 242); padding: 8px 8px 8px 75px; display: block;" isshow="1">
 					<div style="margin-left:-85px;">
-					<iframe name="video" height="409" width="726" frameborder="0" src="https://www.youtube.com/watch?v=iFl6Txmuibs&list=RDMMGdieREJYYfA&index=3" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
-					</iframe></div></div>
+					<iframe  id="videotoggle" name="video" height="409" width="726" frameborder="0" src="https://www.youtube.com/watch?v=<%--<%=a.getY_code() %> --%>&list=RDMMGdieREJYYfA&index=3" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+					</iframe></div></div> 
+  	
+	 
 	<%---댓글 --%>
-			<div id="comment_5934d76c1d295a79318b4568" cid="5934d76c1d295a79318b4568" isshow="1" style="vertical-align: middle; border-top: 1px dotted rgb(183, 209, 242); display: block;">
+			<button><div id="comment_5934d76c1d295a79318b4568" cid="5934d76c1d295a79318b4568" isshow="1" style="vertical-align: middle; border-top: 1px dotted rgb(183, 209, 242); display: block;">
 			
 			<br>내용: <input name="comm" class="comment_memo ui-widget-content ui-corner-all" style="width:480px;"> &nbsp; <input name="id" type="hidden" value="5934d76c1d295a79318b4568">
 			<span class="do_comment ui-widget-content ui-corner-all" style="cursor:pointer; padding:3px">&nbsp; √ &nbsp;</span><span class="error" style="color:red;"></span>
 			<br><span style="color:red;">※ 추천유도!, 비방성 댓글, 허위사실, 비속어 등은 자제해 주세요.</span></div>
 			
+			<div id="aaa">
 			<div id="cc_5934d76c1d295a79318b4568" style="margin-left:80px;">
 			<div style="border:1px solid blue; padding-right:6px;"><div>
 			<div style="position:relative; color:#77D; font-size:9pt; width:100%; background:#F0F0F0; padding:2px; border-top:1px solid #AAA; border-bottom:1px dotted #CCC;">
@@ -173,11 +191,11 @@
 							<span style="cursor:default; color:#3333CC;">추천 19</span></a> 
 							
 			<%---댓글 신고로 만들자--%><a cid="593504771d295a8b458b4569" gcid="#gc_593504771d295a8b458b4569" class="sbtn small btn_go_gc" gc="19">
-							<span style="color:#3333CC;">이동</span></a> </div></div>
+							<span style="color:#3333CC;">이동</span></a> </div>
 							
 			<%---댓글 내용--%><div style="padding:5px 0px 10px 5px; word-break:break-all;">
 							공부하면 너처럼 마냥세상탓하면서 암것도안하는애들보단 잘되겟지 ?
-							</div></div><div>
+							</div></div><div></button></div></div>
 							
 							<%--삭제예정 <div style="position:relative; color:#77D; font-size:9pt; width:100%; background:#F0F0F0; padding:2px; border-top:1px solid #AAA; border-bottom:1px dotted #CCC;">
 							11 <span style="color:#AAA; font-size:11px;">9시간  전</span>
@@ -197,8 +215,7 @@
 							  --%>
 	
 	
-	
-	
+
 	
 	 <%---영상 리스트 --%>
 	
