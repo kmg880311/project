@@ -58,7 +58,7 @@ System.out.println(SID3 + "<-- 로그인되어있는 아이디");
 					<td><input type="text" name="c_id" size="50" value="<%= SID3 %>"></td>
 				<tr>
 				<tr>
-					<td>영상넘버</td>
+					
 					<td><input type="hidden" name="c_live" size="50" value="<%= vi.getLive() %>"></td>
 				<tr>
 				<tr>

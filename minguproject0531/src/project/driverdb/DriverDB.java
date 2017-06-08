@@ -11,16 +11,16 @@ public class DriverDB {
 		Connection recon = null;
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		/*String jdbcDriver = "jdbc:mysql://localhost:3306/aaaa?" +
+		String jdbcDriver = "jdbc:mysql://localhost:3306/aaaa?" +
 				"useUnicode=true&characterEncoding=euckr";
 		String dbUser = "aaaa1";
 		String dbPass = "aaaa1";
-		*/
-		String jdbcDriver = "jdbc:mysql://localhost:3306/livetube_mysql?" +
+		
+		/*String jdbcDriver = "jdbc:mysql://localhost:3306/livetube_mysql?" +
 				"useUnicode=true&characterEncoding=euckr";
 		String dbUser = "root";
 		String dbPass = "java0000";
-		
+		*/
 		recon = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			System.out.println(recon);
 		return recon;

@@ -18,29 +18,34 @@
 	String c_id = request.getParameter("c_id");
 	String c_live = request.getParameter("c_live");
 	String c_ct = request.getParameter("c_ct");
-		System.out.println(c_id + " <--아이디");
+		System.out.println(c_id + "<--아이디");
 		System.out.println(c_live + "영상번호");
 		System.out.println(c_ct + "댓글내용 ");
-
-				
-	if(c_id != null){
+	
 		
-		CommentDao commnet = new CommentDao();
+	CommentDao commnet = new CommentDao();
+	CommentDao commnet2 = new CommentDao();		
+	if(!c_id.equals("null")){
+			System.out.println(c_id + "    null아닐때");
+		//댓글 입력
 		commnet.commentinsert(ct);
 		
-		CommentDao commnet2 = new CommentDao();
+		//영상 댓글 입력후 입력하기 전 댓글 리스트 상태 유지
 		ct = commnet.commnetnew(c_live);
 			System.out.println(ct.getC_live() + "<----댓글 입력 프로999999999999999");
 		response.sendRedirect(request.getContextPath() + "/videowatch/video_watch_form.jsp?live="+ct.getC_live());
 		
 		
-	}else{
+	}else if(c_id.equals("null")){
 		System.out.println("댓글쓸때 아이디가 null");
+		ct = commnet.commnetnew(c_live);
 %>
 		<script language="javascript">
 				alert("로그인을하세요");
-				location.href = "<%= request.getContextPath() %>/videowatch/video_watch_form.jsp";
+				location.href = "<%= request.getContextPath() %>/videowatch/video_watch_form.jsp?live=<%= ct.getC_live()%>";
+				
 		</script>
+		
 <%
 	}
 %>
