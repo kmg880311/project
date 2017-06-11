@@ -19,23 +19,23 @@
   
   <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/main.css" />
   
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script>
-		
-		$(document).ready(function(){
-			$('#videotoggle').css('display','none');
-			$('button').click(function(){
-				$('#videotoggle').toggle();
+			
+			$(document).ready(function(){
+				$('#videotoggle').css('display','none');
+				$('button').click(function(){
+					$('#videotoggle').toggle();
+					
+				});
+				
+				$('#aaa').css('display','none');
+				$('button').click(function(){
+					$('#aaa').toggle();
+				});
+				
 				
 			});
-			
-			$('#aaa').css('display','none');
-			$('button').click(function(){
-				$('#aaa').toggle();
-			});
-			
-			
-		});
 	</script>
   
   

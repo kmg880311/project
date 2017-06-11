@@ -13,7 +13,7 @@ public class CommentDao {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
 /////////////	댓글입력후 영상네임유지	/////////////////////////////////////////////////////////////////////////////////////////////	
-	   public Comment commnetnew(String aaa) throws ClassNotFoundException{
+   public Comment commnetnew(String aaa) throws ClassNotFoundException{
 		Comment ct = new Comment();
 		
 		Connection conn = null;
@@ -67,7 +67,7 @@ public class CommentDao {
 			DriverDB db = new DriverDB();
 			conn = db.driverDbcon();
 			String query = null;	
-			query = "select	* from lt_comment where c_live=?";
+			query = "SELECT *from lt_comment c inner join lt_list l on c.c_id = l.id where c_live=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, aaa);
 			rs = pstmt.executeQuery();
@@ -81,6 +81,7 @@ public class CommentDao {
 				ct.setC_good(rs.getString("c_good"));
 				ct.setC_sin(rs.getString("c_sin"));
 				ct.setC_data(rs.getString("c_data"));
+				ct.setNick(rs.getString("nick"));
 				comment.add(ct);
 				
 				

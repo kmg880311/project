@@ -14,7 +14,9 @@ public class video {
 	private String y_good;
 	private String y_sin;
 	private String y_data;
-	private String y_thumbnail;
+	
+	private String y_thumbnail; //데이터베이스에는 없음
+	private String nick;		//조인으로 사용해서 데이터베이스에 없음
 	
 	public String getLive() {
 		return live;
@@ -98,9 +100,16 @@ public class video {
 		return y_thumbnail;
 	}
 	public void setY_thumbnail(String y_thumbnail) {
-			System.out.println(y_thumbnail + "섬네ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ일");
 		this.y_thumbnail = y_thumbnail;
 	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+	
+	
 		
 	
 	

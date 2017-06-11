@@ -24,7 +24,7 @@
 	
 		
 	CommentDao commnet = new CommentDao();
-	CommentDao commnet2 = new CommentDao();		
+		
 	if(!c_id.equals("null")){
 			System.out.println(c_id + "    null아닐때");
 		//댓글 입력

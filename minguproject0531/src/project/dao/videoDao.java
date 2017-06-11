@@ -27,13 +27,23 @@ public class videoDao {
 			DriverDB db = new DriverDB();
 			conn = db.driverDbcon();
 			String query = null;	
-			query = "SELECT live, y_id, y_title, y_name, y_comment, y_style, y_ct, y_cu, y_data, y_cl, y_good, y_sin, substr(y_code, 33) y_code FROM lt_video where live=?";
+			query = "SELECT v.live, v.y_id, v.y_title, v.y_name, v.y_comment, v.y_style, v.y_ct, v.y_cu, v.y_data, v.y_cl, v.y_good, v.y_sin, substr(v.y_code, 33) y_code, l.nick from lt_video v inner join lt_list l on v.y_id = l.id where v.live=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, live);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
 			vi.setY_code(rs.getString("y_code"));
+			vi.setY_id(rs.getString("y_id"));
+			vi.setY_title(rs.getString("y_title"));
+			vi.setY_name(rs.getString("y_name"));
+			vi.setY_comment(rs.getString("y_comment"));
+			vi.setY_style(rs.getString("y_style"));
+			vi.setY_ct(rs.getString("y_ct"));
+			vi.setY_cu(rs.getString("y_cu"));
+			vi.setY_data(rs.getString("y_data"));
+			vi.setY_cl(rs.getString("y_cl"));
+			vi.setNick(rs.getString("nick"));
 			vi.setLive(live);
 				
 			}
